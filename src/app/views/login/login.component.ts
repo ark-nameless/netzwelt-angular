@@ -38,7 +38,7 @@ export class LoginComponent {
        this.router.navigate(['/'])
       },
       err => {
-        this.error = 'Invalid Username/Password'
+        this.error = err.error.message;
       }
     )
   }
