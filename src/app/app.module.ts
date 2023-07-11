@@ -9,12 +9,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TreeComponent } from './components/tree/tree.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TerritoriesComponent
+    TerritoriesComponent,
+    TreeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AccountsService } from 'src/app/services/accounts.service';
 
 @Component({
@@ -21,6 +22,7 @@ export class LoginComponent {
   error = '';
 
   constructor(
+    private router: Router,
     private accountService: AccountsService,
   ) {}
   
@@ -30,8 +32,10 @@ export class LoginComponent {
 
     this.accountService.login(this.loginInfo.username || '', this.loginInfo.password || '').subscribe(
       data => {
-       localStorage.setItem('user', data);
+       localStorage.setItem('name', data.displayName);
+       localStorage.setItem('roles', data.roles);
        localStorage.setItem('username', data.username);
+       this.router.navigate(['/'])
       },
       err => {
         this.error = 'Invalid Username/Password'
