@@ -32,6 +32,7 @@ export class LoginComponent {
 
     this.accountService.login(this.loginInfo.username || '', this.loginInfo.password || '').subscribe(
       data => {
+        localStorage.setItem('user', data);
        localStorage.setItem('name', data.displayName);
        localStorage.setItem('roles', data.roles);
        localStorage.setItem('username', data.username);
