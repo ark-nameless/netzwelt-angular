@@ -8,7 +8,12 @@ import { environment } from 'src/environments/environment.development';
 })
 export class AccountsService {
   httpOptions = { 
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders(
+      {
+        'Content-Type': 'application/json',
+        'accept': 'text/plain'
+      }
+    )
   }
 
   constructor(private http: HttpClient) {}
